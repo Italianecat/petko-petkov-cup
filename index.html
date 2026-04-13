@@ -3,151 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Петко Петков Cup - U12 Tournament</title>
+    <title>Петко Петков Cup - U12 Турнир</title>
     <style>
-        /* ДИЗАЙН СИСТЕМА ОТ ЛОГОТО */
         :root {
-            --forest-green: #14532d; /* Примерен тъмнозелен цвят */
-            --antique-gold: #c6a35f; /* Примерен златист цвят */
-            --vintage-cream: #fef3c7; /* Примерен кремав цвят */
+            --forest-green: #14532d;
+            --darker-green: #0a2f1a;
+            --antique-gold: #c6a35f;
+            --vintage-cream: #fef3c7;
             --white: #ffffff;
         }
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--forest-green);
-            color: var(--vintage-cream);
+            color: var(--white);
+            line-height: 1.6;
         }
 
-        /* 1. HEADER & MENU (Вдъхновено от Gallini) */
+        /* HEADER СТИЛОВЕ */
         header {
-            background-color: rgba(0,0,0,0.5); /* Полупрозрачен фон за менюто */
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--antique-gold);
+            background-color: var(--darker-green);
+            border-bottom: 3px solid var(--antique-gold);
+            padding: 10px 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .main-logo-area {
+            flex: 1;
         }
 
         .main-logo {
-            height: 60px; /* Твоето лого ще влезе тук */
+            height: 90px;
             width: auto;
+            transition: transform 0.3s;
         }
 
-        .condor-logo {
-            height: 40px; /* Логото на Condor Sport */
-            opacity: 0.8;
+        .main-logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            flex: 2;
         }
 
         nav ul {
             list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
             margin: 0;
             padding: 0;
-            display: flex;
-            gap: 20px;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--vintage-cream);
+            color: var(--white);
             font-weight: bold;
             text-transform: uppercase;
             font-size: 0.9rem;
-            transition: color 0.3s;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
             color: var(--antique-gold);
         }
 
-        /* 2. HERO SECTION (Емоционален заряд) */
+        .partners-area {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* HERO СЕКЦИЯ */
         .hero {
-            height: 80vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: linear-gradient(rgba(20, 83, 45, 0.8), rgba(20, 83, 45, 0.9)), url('background-stadium.jpg'); /* Снимка на стадиона на Берое */
+            background: linear-gradient(rgba(20, 83, 45, 0.7), rgba(10, 47, 26, 0.9)), 
+                        url('https://condorsport.bg/wp-content/uploads/2023/10/stadium-bg.jpg'); /* Временен фон */
             background-size: cover;
             background-position: center;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         .hero h1 {
             color: var(--antique-gold);
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            font-weight: normal;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            max-width: 600px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            font-size: 1.4rem;
+            max-width: 800px;
+            color: var(--vintage-cream);
         }
 
-        /* Call to Action бутон (В златисто) */
-        .cta-button {
+        .btn-reg {
             background-color: var(--antique-gold);
-            color: var(--forest-green);
-            padding: 15px 30px;
+            color: var(--darker-green);
+            padding: 15px 40px;
             text-decoration: none;
             font-weight: bold;
+            border-radius: 50px;
             text-transform: uppercase;
-            border-radius: 5px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+            transition: all 0.3s;
         }
 
-        .cta-button:hover {
+        .btn-reg:hover {
+            background-color: var(--vintage-cream);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(198, 163, 95, 0.4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
+        /* МОБИЛНА ВЕРСИЯ */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+            }
+            nav ul {
+                margin: 20px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .partners-area {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="path-to-your-logo.png" alt="Петко Петков Cup Лого" class="main-logo">
-            <img src="path-to-condor-logo.png" alt="Condor Sport Лого" class="condor-logo">
+        <div class="main-logo-area">
+            <img src="logo-petkov.png" alt="Петко Петков Cup" class="main-logo">
         </div>
+        
         <nav>
             <ul>
-                <li><a href="#program">Програма</a></li>
                 <li><a href="#teams">Отбори</a></li>
-                <li><a href="#rules">Регламент</a></li>
+                <li><a href="#program">Програма</a></li>
                 <li><a href="#history">История</a></li>
-                <li><a href="#contacts">Контакти</a></li>
+                <li><a href="#contact">Контакти</a></li>
             </ul>
         </nav>
+
+        <div class="partners-area">
+            <img src="logo_condor-2025-_white.png" alt="Condor Sport" class="partner-logo">
+            <img src="beroe-stara-zagora.png" alt="Берое" class="partner-logo">
+            <img src="gerb-obshtina.png" alt="Община Стара Загора" class="partner-logo">
+        </div>
     </header>
 
     <section class="hero">
         <h1>Петко Петков Cup</h1>
-        <h2>Международен Футболен Турнир U12</h2>
-        <p>В памет на легендата на Берое и българския футбол. Стара Загора посреща най-добрите детски отбори.</p>
-        <a href="#registration" class="cta-button">Регистрирай Отбор</a>
+        <p>Международен детски футболен турнир U12 <br> гр. Стара Загора</p>
+        <a href="https://condorsport.bg/info/international-tournament-petko-petkov-stara-zagora" class="btn-reg">Регистрация и Инфо</a>
     </section>
 
-    </body>
+</body>
 </html>
