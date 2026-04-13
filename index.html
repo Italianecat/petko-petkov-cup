@@ -187,3 +187,101 @@
         <div class="partners-area">
             <img src="logo_condor-2025-_white.png" alt="Condor Sport" class="partner-logo">
             <img src="beroe-stara-zagora.png" alt="Берое" class="partner-logo">
+            <img src="gerb-obshtina.png" alt="Община Стара Загора" class="partner-logo">
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Петко Петков Cup</h1>
+        <p>Международен детски футболен турнир U12 <br> гр. Стара Загора</p>
+        <a href="#program" class="btn-reg">Към Програмата</a>
+    </section>
+
+    <section id="teams" class="teams-section">
+        <div class="container">
+            <h2 class="section-title">Участници U12</h2>
+            <div id="teams-container" class="teams-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="program" class="program-section">
+        <div class="container">
+            <h2 class="section-title">Програма на турнира</h2>
+            
+            <div class="day-tabs">
+                <button class="tab-btn active" onclick="openDay('day1', event)">Ден 1</button>
+                <button class="tab-btn" onclick="openDay('day2', event)">Ден 2</button>
+                <button class="tab-btn" onclick="openDay('day3', event)">Ден 3</button>
+            </div>
+
+            <div id="day1" class="day-content active">
+                <h3>Ден 1 - Настаняване и Начални мачове</h3>
+                <p>Тук ще вградим твоята таблица от Google Sheets за Ден 1.</p>
+                </div>
+
+            <div id="day2" class="day-content">
+                <h3>Ден 2 - Групова фаза</h3>
+                <p>Програмата за втория ден ще бъде достъпна скоро.</p>
+            </div>
+
+            <div id="day3" class="day-content">
+                <h3>Ден 3 - Полуфинали и Финали</h3>
+                <p>Програмата за финалния ден ще бъде достъпна скоро.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. ДАННИ ЗА ОТБОРИТЕ
+        const teamsData = [
+            { name: "ПФК Берое", city: "Стара Загора", logo: "beroe-stara-zagora.png" },
+            { name: "ФК Кондор", city: "Стара Загора", logo: "logo_condor-2025-_white.png" },
+            { name: "Локомотив Пд", city: "Пловдив", logo: "logo-petkov.png" },
+            { name: "Левски София", city: "София", logo: "logo-petkov.png" },
+            { name: "ЦСКА-София", city: "София", logo: "logo-petkov.png" },
+            { name: "Ботев Пд", city: "Пловдив", logo: "logo-petkov.png" },
+            { name: "Черно Море", city: "Варна", logo: "logo-petkov.png" },
+            { name: "Лудогорец", city: "Разград", logo: "logo-petkov.png" },
+            { name: "Етър", city: "В. Търново", logo: "logo-petkov.png" },
+            { name: "Славия", city: "София", logo: "logo-petkov.png" }
+        ];
+
+        // 2. ФУНКЦИЯ ЗА РИСУВАНЕ НА ОТБОРИТЕ
+        function renderTeams() {
+            const container = document.getElementById('teams-container');
+            if(container) {
+                container.innerHTML = teamsData.map(team => `
+                    <div class="team-card">
+                        <div class="team-logo-bg">
+                            <img src="${team.logo}" alt="${team.name}">
+                        </div>
+                        <h3>${team.name}</h3>
+                        <p>${team.city}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // 3. ЛОГИКА ЗА ТАБОВЕТЕ В ПРОГРАМАТА
+        function openDay(dayId, event) {
+            const contents = document.getElementsByClassName('day-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+
+            const buttons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+
+            document.getElementById(dayId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Стартираме всичко при зареждане
+        window.onload = renderTeams;
+    </script>
+
+</body>
+</html>
