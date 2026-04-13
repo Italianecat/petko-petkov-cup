@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петко Петков Cup - U12 Tournament</title>
+    <style>
+        /* ДИЗАЙН СИСТЕМА ОТ ЛОГОТО */
+        :root {
+            --forest-green: #14532d; /* Примерен тъмнозелен цвят */
+            --antique-gold: #c6a35f; /* Примерен златист цвят */
+            --vintage-cream: #fef3c7; /* Примерен кремав цвят */
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--forest-green);
+            color: var(--vintage-cream);
+        }
+
+        /* 1. HEADER & MENU (Вдъхновено от Gallini) */
+        header {
+            background-color: rgba(0,0,0,0.5); /* Полупрозрачен фон за менюто */
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--antique-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .main-logo {
+            height: 60px; /* Твоето лого ще влезе тук */
+            width: auto;
+        }
+
+        .condor-logo {
+            height: 40px; /* Логото на Condor Sport */
+            opacity: 0.8;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--vintage-cream);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--antique-gold);
+        }
+
+        /* 2. HERO SECTION (Емоционален заряд) */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: linear-gradient(rgba(20, 83, 45, 0.8), rgba(20, 83, 45, 0.9)), url('background-stadium.jpg'); /* Снимка на стадиона на Берое */
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            color: var(--antique-gold);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            font-weight: normal;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Call to Action бутон (В златисто) */
+        .cta-button {
+            background-color: var(--antique-gold);
+            color: var(--forest-green);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(198, 163, 95, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="path-to-your-logo.png" alt="Петко Петков Cup Лого" class="main-logo">
+            <img src="path-to-condor-logo.png" alt="Condor Sport Лого" class="condor-logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#program">Програма</a></li>
+                <li><a href="#teams">Отбори</a></li>
+                <li><a href="#rules">Регламент</a></li>
+                <li><a href="#history">История</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Петко Петков Cup</h1>
+        <h2>Международен Футболен Турнир U12</h2>
+        <p>В памет на легендата на Берое и българския футбол. Стара Загора посреща най-добрите детски отбори.</p>
+        <a href="#registration" class="cta-button">Регистрирай Отбор</a>
+    </section>
+
+    </body>
+</html>
