@@ -223,7 +223,67 @@
             { name: "Славия", city: "София", logo: "logo-petkov.png" }
             // Копирай ред и добави име на новите отбори
         ];
+<section id="program" class="program-section">
+        <div class="container">
+            <h2 class="section-title">Програма на турнира</h2>
+            
+            <div class="day-tabs">
+                <button class="tab-btn active" onclick="openDay('day1')">Ден 1</button>
+                <button class="tab-btn" onclick="openDay('day2')">Ден 2</button>
+                <button class="tab-btn" onclick="openDay('day3')">Ден 3</button>
+            </div>
 
+            <div id="day1" class="day-content active">
+                <p>Очаквайте програмата за първия ден...</p>
+                </div>
+
+            <div id="day2" class="day-content">
+                <p>Очаквайте програмата за втория ден...</p>
+            </div>
+
+            <div id="day3" class="day-content">
+                <p>Очаквайте програмата за финалите...</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .program-section { padding: 50px 5%; text-align: center; background: white; }
+        
+        .day-tabs { margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; }
+        
+        .tab-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--forest-green);
+            background: transparent;
+            color: var(--forest-green);
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--forest-green);
+            color: white;
+        }
+
+        .day-content { display: none; padding: 20px; border: 1px dashed #ccc; border-radius: 10px; min-height: 200px; }
+        .day-content.active { display: block; }
+    </style>
+
+    <script>
+        function openDay(dayId) {
+            // Скриваме всички дни
+            document.querySelectorAll('.day-content').forEach(content => content.classList.remove('active'));
+            // Деактивираме всички бутони
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Показваме избрания ден и активираме неговия бутон
+            document.getElementById(dayId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
         function renderTeams() {
             const container = document.getElementById('teams-container');
             container.innerHTML = teamsData.map(team => `
