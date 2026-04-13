@@ -99,6 +99,20 @@
         .info-card i { color: var(--forest-green); font-size: 1.8rem; margin-bottom: 15px; display: block; }
         .info-card h3 { color: var(--darker-green); text-transform: uppercase; margin: 0 0 10px 0; font-size: 1.1rem; }
 
+        /* HOTELS */
+        .hotels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        .hotel-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; }
+        .hotel-card img { width: 100%; height: 200px; object-fit: cover; }
+        .hotel-info { padding: 20px; }
+        .hotel-info h4 { margin: 0 0 10px 0; color: var(--forest-green); }
+
+        /* VENUE / TERRAINS */
+        .venue-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 30px; }
+        .venue-img { border-radius: 10px; overflow: hidden; height: 200px; position: relative; }
+        .venue-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .venue-img:hover img { transform: scale(1.1); }
+        .venue-img span { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 5px 12px; border-radius: 5px; font-size: 0.8rem; }
+
         /* APP LINKS SECTION (GALLINI STYLE) */
         .app-links-section { background: var(--light-gray); padding: 60px 5%; border-top: 1px solid #ddd; }
         .app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
@@ -121,6 +135,16 @@
         .tab-content.active { display: block; }
         .prog-row { display: flex; padding: 15px 0; border-bottom: 1px solid #eee; }
         .prog-time { width: 120px; font-weight: bold; color: var(--forest-green); }
+
+        /* SPONSORS CAROUSEL */
+        .sponsors-carousel { background: white; padding: 40px 0; overflow: hidden; border-top: 1px solid #eee; }
+        .sponsors-track { display: flex; gap: 50px; width: calc(250px * 10); animation: scroll 20s linear infinite; align-items: center; }
+        .sponsors-track img { height: 60px; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
+        .sponsors-track img:hover { filter: grayscale(0%); opacity: 1; }
+        @keyframes scroll { 
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 5)); }
+        }
 
         /* КАРТА */
         .map-container { width: 100%; height: 400px; margin-top: 40px; border: 5px solid var(--vintage-cream); border-radius: 15px; overflow: hidden; }
@@ -149,8 +173,9 @@
             <ul>
                 <li><a href="#teams">Отбори</a></li>
                 <li><a href="#program">Програма</a></li>
+                <li><a href="#accommodation">Хотели</a></li>
+                <li><a href="#venue">База</a></li>
                 <li><a href="#history">История</a></li>
-                <li><a href="#reglament">Регламент</a></li>
             </ul>
         </nav>
         <div class="header-partners">
@@ -185,7 +210,26 @@
         </div>
     </section>
 
-    <section id="teams" class="bg-light fade-in">
+    <section id="venue" class="bg-light fade-in">
+        <h2 class="section-title">Спортна База</h2>
+        <p style="max-width: 800px; margin: 0 auto 30px;">Турнирът се провежда на модерната база на ПФК "Берое", разполагаща с отлично поддържани естествени и изкуствени терени.</p>
+        <div class="venue-gallery">
+            <div class="venue-img">
+                <img src="https://beroe.bg/wp-content/uploads/2015/05/baza1.jpg" alt="Терен 1">
+                <span>Главен терен</span>
+            </div>
+            <div class="venue-img">
+                <img src="https://beroe.bg/wp-content/uploads/2015/05/baza2.jpg" alt="Терен 2">
+                <span>Изкуствен терен</span>
+            </div>
+            <div class="venue-img">
+                <img src="https://beroe.bg/wp-content/uploads/2015/05/baza3.jpg" alt="Терен 3">
+                <span>Тренировъчна зона</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="teams" class="fade-in">
         <h2 class="section-title">Участници U12</h2>
         <div id="teams-container" class="teams-grid"></div>
     </section>
@@ -195,6 +239,28 @@
         <div class="info-card"><i class="fas fa-clock"></i><h3>Времетраене</h3><p>Формат Футбол 9 (2 х 25 мин).</p></div>
         <div class="info-card"><i class="fas fa-trophy"></i><h3>Награди</h3><p>Купи и индивидуални призове.</p></div>
     </div>
+
+    <section id="accommodation" class="bg-light fade-in">
+        <h2 class="section-title">Настаняване</h2>
+        <div class="hotels-grid">
+            <div class="hotel-card">
+                <img src="https://parkhotelstarazagora.com/wp-content/uploads/2017/04/hotel-exterior.jpg" alt="Парк Хотел Стара Загора">
+                <div class="hotel-info">
+                    <h4>Парк Хотел Стара Загора *****</h4>
+                    <p><i class="fas fa-star" style="color:var(--antique-gold)"></i> Официален партньор на турнира.</p>
+                    <p>Намира се в непосредствена близост до езерото "Загорка".</p>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <img src="https://merianpalace.com/images/slider/slide1.jpg" alt="Мериан Палас">
+                <div class="hotel-info">
+                    <h4>Хотел Мериан Палас ****</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Център, Стара Загора</p>
+                    <p>Комфортно настаняване за отборите и техните родители.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="app-links-section fade-in">
         <div class="app-grid">
@@ -245,9 +311,24 @@
     <section id="reglament" class="bg-light fade-in">
         <h2 class="section-title">Локация</h2>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.5!2d25.6!3d42.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDI0JzAwLjAiTiAyNcKwMzYnMDAuMCJF!5e0!3m2!1sbg!2sbg!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen=""></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d2944.437318357038!2d25.6179373766627!3d42.43971262947213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a8690947602359%3A0xc4864e433a01046c!2z0KHQv9C-0YDRgtC90LAg0LHQsNC30LAg0JHQtdGA0L7QtQ!5e0!3m2!1sbg!2sbg!4v1700000000000!5m2!1sbg!2sbg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
+
+    <div class="sponsors-carousel">
+        <div class="sponsors-track">
+            <img src="logo_condor-2025-_white.png" alt="Sponsor 1">
+            <img src="gerb-obshtina.png" alt="Sponsor 2">
+            <img src="beroe-stara-zagora.png" alt="Sponsor 3">
+            <img src="Petko Petkov new.png" alt="Sponsor 4">
+            <img src="logo_condor-2025-_white.png" alt="Sponsor 1">
+            <img src="gerb-obshtina.png" alt="Sponsor 2">
+            <img src="beroe-stara-zagora.png" alt="Sponsor 3">
+            <img src="Petko Petkov new.png" alt="Sponsor 4">
+            <img src="logo_condor-2025-_white.png" alt="Sponsor 1">
+            <img src="gerb-obshtina.png" alt="Sponsor 2">
+        </div>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -278,21 +359,21 @@
             { name: "Бешикташ", logo: "besiktas-jk.png" },
             { name: "Монтело Калчо", logo: "Montello.png" },
             { name: "ПФК Берое", logo: "beroe-stara-zagora.png" },
-            { name: "ЦСКА-София", logo: "cska-sofia.png" },
+            { name: "ЦСКА-София", logo: "logo_condor-2025-_white.png" },
             { name: "Славия 1", logo: "slavia-sofia.png" },
             { name: "Славия 2", logo: "slavia-sofia.png" },
             { name: "Ботев Пд", logo: "botev-plovdiv.png" },
             { name: "Локомотив Пд", logo: "lokomotiv-plovdiv.png" },
             { name: "Ботев Враца", logo: "botev-vratsa.png" },
             { name: "Спартак Варна", logo: "spartak-varna.png" },
-            { name: "Фратрия", logo: "FC_Fratria_logo.png" },
+            { name: "Фратрия", logo: "logo-petkov.png" },
             { name: "Дунав Русе", logo: "dunav.png" },
-            { name: "Левски Раковски", logo: "Levski rakovski.png" },
+            { name: "Левски Раковски", logo: "logo-petkov.png" },
             { name: "Добруджа", logo: "dobrudzha-dobrich.png" },
-            { name: "VR", logo: "VR.png" },
-            { name: "Розова Долина", logo: "Rozite.png" },
-            { name: "Хебър", logo: "hebar-100yrs-logo-1.png" },
-            { name: "Локомотив Стара загора", logo: "Локо стз.png" },
+            { name: "VR", logo: "logo-petkov.png" },
+            { name: "Розова Долина", logo: "logo-petkov.png" },
+            { name: "Хебър", logo: "logo-petkov.png" },
+            { name: "Локомотив Стара загора", logo: "logo-petkov.png" },
             { name: "Локомотив София", logo: "lokomotiv-sofia.png" }
         ];
 
