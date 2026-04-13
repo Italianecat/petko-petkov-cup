@@ -49,7 +49,7 @@
         nav a { text-decoration: none; color: var(--white); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: var(--antique-gold); }
         .header-partners { display: flex; gap: 15px; align-items: center; }
-        .header-partners img { height: 40px; object-fit: contain; }
+        .header-partners img { height: 45px; object-fit: contain; }
 
         /* HERO SECTION */
         .hero {
@@ -156,6 +156,7 @@
         <div class="header-partners">
             <img src="logo_condor-2025-_white.png" alt="Condor Sport">
             <img src="beroe-stara-zagora.png" alt="Beroe">
+            <img src="gerb-obshtina.png" alt="Община Стара Загора">
         </div>
     </header>
 
@@ -223,14 +224,20 @@
             <div class="tab-menu">
                 <button class="tab-link active" onclick="openDay('day1', event)">Ден 1</button>
                 <button class="tab-link" onclick="openDay('day2', event)">Ден 2</button>
-                <button class="tab-link" onclick="openDay('day2', event)">Ден 3</button>
-                <button class="tab-link" onclick="openDay('day2', event)">Ден 4</button>
+                <button class="tab-link" onclick="openDay('day3', event)">Ден 3</button>
+                <button class="tab-link" onclick="openDay('day4', event)">Ден 4</button>
             </div>
             <div id="day1" class="tab-content active">
                 <div class="prog-row"><div class="prog-time">14:00ч.</div><div>Начало на мачовете</div></div>
             </div>
             <div id="day2" class="tab-content">
-                <p>Финална фаза и награждаване.</p>
+                <p>Групова фаза - ден втори.</p>
+            </div>
+            <div id="day3" class="tab-content">
+                <p>Елиминационна фаза.</p>
+            </div>
+            <div id="day4" class="tab-content">
+                <p>Финали и награждаване.</p>
             </div>
         </div>
     </section>
