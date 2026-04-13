@@ -156,8 +156,13 @@
             text-transform: uppercase;
         }
         .tab-btn.active, .tab-btn:hover { background: var(--forest-green); color: white; }
-        .day-content { display: none; padding: 20px; border-radius: 10px; background: #f9f9f9; min-height: 300px; }
+        
+        .day-content { display: none; padding: 30px; border-radius: 10px; background: #f9f9f9; min-height: 300px; text-align: left; max-width: 800px; margin: 0 auto; }
         .day-content.active { display: block; }
+        
+        /* СТИЛ ЗА ЧАСОВЕТЕ В ПРОГРАМАТА */
+        .prog-item { display: flex; margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px; }
+        .prog-time { font-weight: bold; color: var(--forest-green); min-width: 120px; }
 
         /* МОБИЛНА ВЕРСИЯ */
         @media (max-width: 800px) {
@@ -165,6 +170,8 @@
             nav ul { margin: 15px 0; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .partners-area { justify-content: center; margin-top: 10px; }
             .main-logo { height: 60px; }
+            .prog-item { flex-direction: column; }
+            .prog-time { margin-bottom: 5px; }
         }
     </style>
 </head>
@@ -200,8 +207,7 @@
     <section id="teams" class="teams-section">
         <div class="container">
             <h2 class="section-title">Участници U12</h2>
-            <div id="teams-container" class="teams-grid">
-                </div>
+            <div id="teams-container" class="teams-grid"></div>
         </div>
     </section>
 
@@ -216,24 +222,28 @@
             </div>
 
             <div id="day1" class="day-content active">
-                <h3>Ден 1 - Настаняване и Начални мачове</h3>
-                <p>Тук ще вградим твоята таблица от Google Sheets за Ден 1.</p>
-                </div>
+                <h3>Ден 1 - Петък</h3>
+                <div class="prog-item"><div class="prog-time">до 13:00ч.</div><div>Пристигане и настаняване на отборите</div></div>
+                <div class="prog-item"><div class="prog-time">14:00 - 18:30ч.</div><div>Мачове от груповата фаза</div></div>
+                <div class="prog-item"><div class="prog-time">19:00ч.</div><div>Техническа конференция (Стадион „Берое“)</div></div>
+            </div>
 
             <div id="day2" class="day-content">
-                <h3>Ден 2 - Групова фаза</h3>
-                <p>Програмата за втория ден ще бъде достъпна скоро.</p>
+                <h3>Ден 2 - Събота</h3>
+                <div class="prog-item"><div class="prog-time">09:00 - 13:00ч.</div><div>Мачове от груповата фаза</div></div>
+                <div class="prog-item"><div class="prog-time">13:00 - 14:30ч.</div><div>Обяд за участниците</div></div>
+                <div class="prog-item"><div class="prog-time">15:00 - 19:00ч.</div><div>Четвъртфинали и разпределителни мачове</div></div>
             </div>
 
             <div id="day3" class="day-content">
-                <h3>Ден 3 - Полуфинали и Финали</h3>
-                <p>Програмата за финалния ден ще бъде достъпна скоро.</p>
+                <h3>Ден 3 - Неделя</h3>
+                <div class="prog-item"><div class="prog-time">09:00 - 11:30ч.</div><div>Полуфинали, Финали и мачове за класиране</div></div>
+                <div class="prog-item"><div class="prog-time">12:00ч.</div><div>Официална церемония по награждаване и закриване</div></div>
             </div>
         </div>
     </section>
 
     <script>
-        // 1. ДАННИ ЗА ОТБОРИТЕ
         const teamsData = [
             { name: "ПФК Берое", city: "Стара Загора", logo: "beroe-stara-zagora.png" },
             { name: "ФК Кондор", city: "Стара Загора", logo: "logo_condor-2025-_white.png" },
@@ -247,7 +257,6 @@
             { name: "Славия", city: "София", logo: "logo-petkov.png" }
         ];
 
-        // 2. ФУНКЦИЯ ЗА РИСУВАНЕ НА ОТБОРИТЕ
         function renderTeams() {
             const container = document.getElementById('teams-container');
             if(container) {
@@ -263,23 +272,19 @@
             }
         }
 
-        // 3. ЛОГИКА ЗА ТАБОВЕТЕ В ПРОГРАМАТА
         function openDay(dayId, event) {
             const contents = document.getElementsByClassName('day-content');
             for (let i = 0; i < contents.length; i++) {
                 contents[i].classList.remove('active');
             }
-
             const buttons = document.getElementsByClassName('tab-btn');
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('active');
             }
-
             document.getElementById(dayId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
 
-        // Стартираме всичко при зареждане
         window.onload = renderTeams;
     </script>
 
