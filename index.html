@@ -128,7 +128,7 @@
         /* FOOTER & SOCIALS */
         footer { background-color: var(--darker-green); color: white; padding: 80px 10% 40px; border-top: 5px solid var(--antique-gold); }
         .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto; }
-Ф        .footer-about img { height: 80px; margin-bottom: 20px; }
+        .footer-about img { height: 80px; margin-bottom: 20px; }
         .footer-socials { display: flex; gap: 15px; margin-top: 20px; }
         .social-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--antique-gold); border: 1px solid var(--antique-gold); transition: 0.3s; text-decoration: none; }
         .social-icon:hover { background: var(--antique-gold); color: var(--darker-green); transform: translateY(-3px); }
@@ -252,7 +252,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-about">
-                <img src="Petko" alt="Петко Петков Cup">
+                <img src="Petko Petkov new.png" alt="Петко Петков Cup">
                 <p>Международен детски футболен турнир.</p>
                 <div class="footer-socials">
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -271,12 +271,12 @@
 
     <script>
         const teams = [
-            { name: "Болоня", logo: "bologna-fc-1909.png" }
-            { name: "Лацио", logo: "ss-lazio.png" }
-            { name: "Торино", logo: "torino-fc.png" }
-            { name: "Цървена Звезда", logo: "red-star-belgrade.png" }
-            { name: "Бешикташ", logo: "besiktas-jk.png" }
-            { name: "Монтело Калчо", logo: "Montello.png" }
+            { name: "Болоня", logo: "bologna-fc-1909.png" },
+            { name: "Лацио", logo: "ss-lazio.png" },
+            { name: "Торино", logo: "torino-fc.png" },
+            { name: "Цървена Звезда", logo: "red-star-belgrade.png" },
+            { name: "Бешикташ", logo: "besiktas-jk.png" },
+            { name: "Монтело Калчо", logo: "Montello.png" },
             { name: "ПФК Берое", logo: "beroe-stara-zagora.png" },
             { name: "ФК Кондор", logo: "logo_condor-2025-_white.png" },
             { name: "Левски София", logo: "logo-petkov.png" },
@@ -288,12 +288,15 @@
         ];
 
         function renderTeams() {
-            document.getElementById('teams-container').innerHTML = teams.map(t => `
-                <div class="team-card">
-                    <div class="team-logo"><img src="${t.logo}" onerror="this.src='https://via.placeholder.com/80'"></div>
-                    <h4 style="margin:0; font-size:0.9rem;">${t.name}</h4>
-                </div>
-            `).join('');
+            const container = document.getElementById('teams-container');
+            if(container) {
+                container.innerHTML = teams.map(t => `
+                    <div class="team-card">
+                        <div class="team-logo"><img src="${t.logo}" onerror="this.src='https://via.placeholder.com/80'"></div>
+                        <h4 style="margin:0; font-size:0.9rem;">${t.name}</h4>
+                    </div>
+                `).join('');
+            }
         }
 
         async function getLiveWeather() {
@@ -305,7 +308,9 @@
                 const data = await response.json();
                 document.getElementById("weather-temp").innerText = `Стара Загора: ${Math.round(data.main.temp)}°C, ${data.weather[0].description}`;
                 document.getElementById("weather-icon").innerHTML = `<i class="fas fa-sun" style="color: #ffd700;"></i>`;
-            } catch (e) { document.getElementById("weather-temp").innerText = "Стара Загора: 24°C"; }
+            } catch (e) { 
+                document.getElementById("weather-temp").innerText = "Стара Загора: 24°C"; 
+            }
         }
 
         function updateTimer() {
@@ -313,9 +318,9 @@
             const now = new Date().getTime();
             const diff = target - now;
             if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                if(document.getElementById("days")) document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                if(document.getElementById("hours")) document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                if(document.getElementById("minutes")) document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             }
         }
 
