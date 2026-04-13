@@ -37,7 +37,7 @@
         }
 
         .main-logo-area { flex: 1; }
-        .main-logo { height: 80px; width: auto; transition: transform 0.3s; }
+        .main-logo { height: 80px; width: auto; }
 
         nav { flex: 1.5; }
         nav ul {
@@ -67,9 +67,9 @@
         }
         .partner-logo { height: 45px; width: auto; object-fit: contain; }
 
-        /* HERO SECTION with Countdown & Weather */
+        /* HERO SECTION */
         .hero {
-            height: 85vh; /* Малко по-високо заради таймера */
+            height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -91,7 +91,7 @@
             letter-spacing: 2px;
         }
 
-        /* Countdown Style */
+        /* Countdown */
         .countdown-container {
             display: flex;
             gap: 15px;
@@ -105,9 +105,8 @@
             border: 1px solid var(--antique-gold);
         }
         .countdown-item span { display: block; font-size: 2rem; font-weight: bold; color: var(--antique-gold); }
-        .countdown-item label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.9; }
+        .countdown-item label { font-size: 0.7rem; text-transform: uppercase; }
 
-        /* Weather Panel */
         .weather-panel {
             background: rgba(10, 47, 26, 0.6);
             padding: 10px 25px;
@@ -116,10 +115,9 @@
             align-items: center;
             gap: 15px;
             border: 1px solid rgba(198, 163, 95, 0.3);
-            font-size: 1rem;
         }
 
-        /* СЕКЦИИ */
+        /* SECTIONS */
         section { padding: 80px 10%; text-align: center; }
         .section-title {
             font-size: 2rem;
@@ -135,22 +133,17 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
+            width: 60px; height: 3px;
             background: var(--antique-gold);
         }
 
         /* ИСТОРИЯ */
         .history-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            text-align: left;
-            max-width: 1000px;
-            margin: 0 auto;
+            display: flex; align-items: center; gap: 40px; text-align: left;
+            max-width: 1000px; margin: 0 auto;
         }
         .history-text { flex: 2; font-size: 1.1rem; }
-        .history-img { flex: 1; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; border: 4px solid var(--vintage-cream); }
+        .history-img { flex: 1; border-radius: 15px; border: 4px solid var(--vintage-cream); width: 100%; }
 
         /* ОТБОРИ */
         .teams-section { background-color: var(--light-gray); }
@@ -158,8 +151,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1200px; margin: 0 auto;
         }
         .team-card {
             background: white; padding: 20px 10px; border-radius: 12px;
@@ -168,27 +160,33 @@
         .team-logo-bg { width: 70px; height: 70px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; }
 
         /* ПРОГРАМА */
-        .day-tabs { margin-bottom: 40px; display: flex; justify(content: center; gap: 10px; flex-wrap: wrap; }
+        .day-tabs { margin-bottom: 40px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .tab-btn {
             padding: 10px 25px; border: 2px solid var(--forest-green); background: transparent;
             color: var(--forest-green); cursor: pointer; font-weight: bold; border-radius: 50px;
             text-transform: uppercase; transition: 0.3s;
         }
-        .tab-btn.active, .tab-btn:hover { background: var(--forest-green); color: white; }
+        .tab-btn.active { background: var(--forest-green); color: white; }
         .day-content { display: none; padding: 40px; border-radius: 20px; background: #f9f9f9; text-align: left; max-width: 800px; margin: 0 auto; }
         .day-content.active { display: block; }
         .prog-item { display: flex; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .prog-time { font-weight: bold; color: var(--forest-green); min-width: 120px; font-size: 1.1rem; }
+        .prog-time { font-weight: bold; color: var(--forest-green); min-width: 120px; }
 
-        /* NEW SECTIONS STYLE */
-        .placeholder-box {
-            background: var(--light-gray);
-            border: 2px dashed #ccc;
-            padding: 60px;
-            border-radius: 20px;
-            color: #888;
-            font-style: italic;
+        /* ИНФО КАРТИ */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 50px auto 0;
         }
+        .info-card {
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left;
+            border-left: 5px solid var(--antique-gold);
+        }
+        .info-card i { font-size: 1.8rem; color: var(--forest-green); margin-bottom: 15px; display: block; }
+        .info-card h4 { color: var(--darker-green); text-transform: uppercase; margin: 0 0 10px 0; }
 
         /* FOOTER */
         footer { background: var(--darker-green); color: white; padding: 60px 5% 30px; text-align: center; }
@@ -197,7 +195,7 @@
 
         @media (max-width: 800px) {
             header { flex-direction: column; padding: 20px; }
-            .partners-area { justify-content: center; width: 100%; }
+            .partners-area { justify-content: center; width: 100%; margin-top: 15px; }
             .history-content { flex-direction: column-reverse; text-align: center; }
         }
     </style>
@@ -227,16 +225,14 @@
 
     <section class="hero">
         <h1>Петко Петков Cup</h1>
-        
         <div class="countdown-container">
             <div class="countdown-item"><span id="days">00</span><label>Дни</label></div>
             <div class="countdown-item"><span id="hours">00</span><label>Часа</label></div>
             <div class="countdown-item"><span id="minutes">00</span><label>Мин</label></div>
         </div>
-
         <div class="weather-panel">
-            <i class="fas fa-sun" style="color: #ffce54; font-size: 1.5rem;"></i>
-            <span>Стара Загора: 28°C / Слънчево</span>
+            <i class="fas fa-sun" style="color: #ffce54;"></i>
+            <span>Стара Загора: 27°C / Слънчево</span>
         </div>
     </section>
 
@@ -245,7 +241,7 @@
         <div class="history-content">
             <div class="history-text">
                 <p>Петко Петков е легенда на българския футбол и символ на ФК „Берое“. Със своите рекордни 144 гола в елита, той остава завинаги в сърцата на феновете.</p>
-                <p>Турнирът цели да съхрани неговото наследство и да вдъхнови младите футболисти да следват неговия път на майсторство и лоялност.</p>
+                <p>Турнирът цели да съхрани неговото наследство и да вдъхнови младите футболисти.</p>
             </div>
             <img src="553268293_10237214184641548_6340380521165262904_n (1).jpg" alt="Петко Петков" class="history-img">
         </div>
@@ -264,15 +260,13 @@
             <button class="tab-btn" onclick="openDay('day3', event)">Ден 3 (06.06)</button>
             <button class="tab-btn" onclick="openDay('day4', event)">Ден 4 (07.06)</button>
         </div>
-
         <div id="day1" class="day-content active">
-            <div class="prog-item"><div class="prog-time">до 13:00ч.</div><div>Настаняване на отборите в хотелите</div></div>
+            <div class="prog-item"><div class="prog-time">до 13:00ч.</div><div>Настаняване на отборите</div></div>
             <div class="prog-item"><div class="prog-time">14:00 - 18:30ч.</div><div>Мачове от груповата фаза</div></div>
-            <div class="prog-item"><div class="prog-time">19:00ч.</div><div>Техническа конференция (ст. Берое)</div></div>
         </div>
-        <div id="day2" class="day-content">...</div>
-        <div id="day3" class="day-content">...</div>
-        <div id="day4" class="day-content">...</div>
+        <div id="day2" class="day-content">Скоро...</div>
+        <div id="day3" class="day-content">Скоро...</div>
+        <div id="day4" class="day-content">Скоро...</div>
 
         <div class="info-grid">
             <div class="info-card"><i class="fas fa-futbol"></i><h4>Категория</h4><p>U12 (2014 г.). Футбол 9.</p></div>
@@ -283,40 +277,27 @@
 
     <section id="accommodation" class="teams-section">
         <h2 class="section-title">Настаняване</h2>
-        <div class="placeholder-box">
-            <i class="fas fa-hotel" style="font-size: 2rem; margin-bottom: 10px;"></i>
-            <p>Информацията за официалните хотели ще бъде добавена скоро.</p>
-        </div>
+        <p>Информацията ще бъде добавена скоро.</p>
     </section>
 
     <section id="gallery">
         <h2 class="section-title">Галерия</h2>
-        <div class="placeholder-box">
-            <i class="fas fa-camera" style="font-size: 2rem; margin-bottom: 10px;"></i>
-            <p>Галерията ще бъде активна по време на турнира (Coming Soon).</p>
-        </div>
+        <p>Coming Soon...</p>
     </section>
 
-    <footer id="contact">
+    <footer>
         <div class="footer-grid">
-            <div><img src="logo-petkov.png" class="footer-logo"><p>Петко Петков Cup<br>Стара Загора</p></div>
-            <div><h4>Организация</h4><p>Кондор Спорт<br>office@condorsport.bg</p></div>
-            <div><h4>Домакин</h4><p>Академия ПФК Берое<br>Община Стара Загора</p></div>
+            <div><img src="logo-petkov.png" class="footer-logo"></div>
+            <div><h4>Контакт</h4><p>office@condorsport.bg</p></div>
         </div>
     </footer>
 
     <script>
-        // Твоите данни за отбори
         const teamsData = [
             { name: "ПФК Берое", city: "Стара Загора", logo: "beroe-stara-zagora.png" },
-            { name: "ФК Кондор", city: "Стара Загора", logo: "logo_condor-2025-_white.png" },
-            { name: "Локомотив Пд", city: "Пловдив", logo: "logo-petkov.png" },
-            { name: "Левски София", city: "София", logo: "logo-petkov.png" },
-            { name: "ЦСКА-София", city: "София", logo: "logo-petkov.png" },
-            { name: "Ботев Пд", city: "Пловдив", logo: "logo-petkov.png" }
+            { name: "ФК Кондор", city: "Стара Загора", logo: "logo_condor-2025-_white.png" }
         ];
 
-        // Countdown Logic
         function updateTimer() {
             const target = new Date("June 4, 2026 09:00:00").getTime();
             const now = new Date().getTime();
@@ -333,7 +314,7 @@
             if(container) {
                 container.innerHTML = teamsData.map(team => `
                     <div class="team-card">
-                        <div class="team-logo-bg"><img src="${team.logo}"></div>
+                        <div class="team-logo-bg"><img src="${team.logo}" style="max-width:100%; max-height:100%;"></div>
                         <h3>${team.name}</h3>
                         <p>${team.city}</p>
                     </div>
@@ -350,11 +331,7 @@
             event.currentTarget.classList.add('active');
         }
 
-        window.onload = () => {
-            renderTeams();
-            setInterval(updateTimer, 1000);
-            updateTimer();
-        };
+        window.onload = () => { renderTeams(); setInterval(updateTimer, 1000); updateTimer(); };
     </script>
 </body>
 </html>
