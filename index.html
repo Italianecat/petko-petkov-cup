@@ -106,7 +106,6 @@
         .countdown-item span { display: block; font-size: 2rem; font-weight: bold; color: var(--antique-gold); }
         .countdown-item label { font-size: 0.7rem; text-transform: uppercase; }
 
-        /* Weather Mini */
         .weather-panel {
             background: rgba(255, 255, 255, 0.05);
             padding: 8px 25px;
@@ -119,10 +118,10 @@
         }
 
         /* SECTIONS */
-        section { padding: 80px 10%; text-align: center; }
+        section { padding: 60px 10%; text-align: center; }
         .section-title {
             font-size: 2rem;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             color: var(--forest-green);
             text-transform: uppercase;
             position: relative;
@@ -139,7 +138,39 @@
             background: var(--antique-gold);
         }
 
-        /* ИНФО КАРТИ (Gallini Style) */
+        /* TEAMS - ВЪРНАТИ ГОРЕ */
+        .teams-section { background-color: var(--light-gray); }
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .team-card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .team-card:hover { transform: translateY(-5px); }
+
+        /* ПРОГРАМА */
+        .day-tabs { margin: 30px 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .tab-btn {
+            padding: 10px 20px; border: 2px solid var(--forest-green); background: transparent;
+            color: var(--forest-green); cursor: pointer; font-weight: bold; border-radius: 50px;
+            text-transform: uppercase; transition: 0.3s;
+        }
+        .tab-btn.active { background: var(--forest-green); color: white; }
+        
+        .day-content { display: none; text-align: left; max-width: 800px; margin: 0 auto; background: #f9f9f9; padding: 30px; border-radius: 15px; }
+        .day-content.active { display: block; }
+        .prog-item { display: flex; padding: 12px 0; border-bottom: 1px solid #eee; }
+        .prog-time { font-weight: bold; color: var(--forest-green); min-width: 100px; }
+
+        /* ИНФО БЛОКЧЕТА */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -149,49 +180,20 @@
         }
         .info-card {
             background: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: left;
             border-left: 5px solid var(--antique-gold);
-            transition: 0.3s;
         }
-        .info-card i { color: var(--forest-green); font-size: 1.8rem; margin-bottom: 20px; display: block; }
-        .info-card h4 { color: var(--darker-green); text-transform: uppercase; margin: 0 0 15px 0; font-size: 1.1rem; }
-        .info-card p { font-size: 0.95rem; color: #555; margin: 0; white-space: pre-line; }
+        .info-card i { color: var(--forest-green); font-size: 1.8rem; margin-bottom: 15px; display: block; }
+        .info-card h4 { color: var(--darker-green); text-transform: uppercase; margin-bottom: 10px; }
 
-        /* ПРОГРАМА (TAB SYSTEM) */
-        .day-tabs { margin: 40px 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .tab-btn {
-            padding: 12px 25px; border: 2px solid var(--forest-green); background: transparent;
-            color: var(--forest-green); cursor: pointer; font-weight: bold; border-radius: 50px;
-            text-transform: uppercase; transition: 0.3s;
-        }
-        .tab-btn.active { background: var(--forest-green); color: white; }
-        
-        .day-content { display: none; text-align: left; max-width: 800px; margin: 0 auto; background: #f9f9f9; padding: 30px; border-radius: 15px; }
-        .day-content.active { display: block; }
-        .prog-item { display: flex; padding: 15px 0; border-bottom: 1px solid #eee; }
-        .prog-time { font-weight: bold; color: var(--forest-green); min-width: 120px; }
-
-        /* TEAMS */
-        .teams-section { background-color: var(--light-gray); }
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .team-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-
-        /* FOOTER */
-        footer { background: var(--darker-green); color: white; padding: 50px 5%; text-align: center; }
+        footer { background: var(--darker-green); color: white; padding: 40px 5%; text-align: center; }
 
         @media (max-width: 800px) {
-            header { flex-direction: column; padding: 20px; }
+            header { flex-direction: column; padding: 15px; }
             .partners-area { justify-content: center; margin-top: 15px; }
-            .prog-item { flex-direction: column; }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -208,7 +210,6 @@
                 <li><a href="#program">Програма</a></li>
                 <li><a href="#history">История</a></li>
                 <li><a href="#accommodation">Настаняване</a></li>
-                <li><a href="#gallery">Галерия</a></li>
             </ul>
         </nav>
         <div class="partners-area">
@@ -230,42 +231,17 @@
 
         <div class="weather-panel">
             <i class="fas fa-sun" style="color: #ffce54;"></i>
-            <span>Прогноза: 27°C Слънчево</span>
+            <span>Прогноза за турнира: 27°C Слънчево</span>
         </div>
     </section>
 
-    <section id="history">
-        <h2 class="section-title">Легендата Петко Петков</h2>
-        <div style="max-width: 850px; margin: 0 auto; text-align: left; display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-            <p style="flex: 2; font-size: 1.1rem;">Турнирът се организира в памет на най-големия голмайстор в историята на ПФК Берое. Петко Петков е символ на футбола в Стара Загора, а това събитие пренася неговия непримирим дух към следващото поколение таланти.</p>
-            <img src="553268293_10237214184641548_6340380521165262904_n (1).jpg" style="width: 250px; border-radius: 15px; border: 4px solid var(--vintage-cream);">
-        </div>
-    </section>
-
-    <section id="info" class="teams-section">
-        <div class="info-grid">
-            <div class="info-card">
-                <i class="fas fa-futbol"></i>
-                <h4>Категории</h4>
-                <p>U12 | момчета родени 2014г.
-                Формат: Футбол 9
-                Терен: Естествена и изкуствена настилка</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-clock"></i>
-                <h4>Времетраене</h4>
-                <p>Две полувремена по 20 или 25 минути, в зависимост от етапа на турнира.</p>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-list-ol"></i>
-                <h4>Брой мачове</h4>
-                <p>Всеки отбор играе минимум 6 мача в рамките на 4-те дни на турнира.</p>
-            </div>
-        </div>
+    <section id="teams" class="teams-section">
+        <h2 class="section-title">Участници U12</h2>
+        <div id="teams-container" class="teams-grid"></div>
     </section>
 
     <section id="program">
-        <h2 class="section-title">Програма на турнира</h2>
+        <h2 class="section-title">Програма</h2>
         <div class="day-tabs">
             <button class="tab-btn active" onclick="openDay('day1', event)">Ден 1 (04.06)</button>
             <button class="tab-btn" onclick="openDay('day2', event)">Ден 2 (05.06)</button>
@@ -274,35 +250,53 @@
         </div>
 
         <div id="day1" class="day-content active">
-            <div class="prog-item"><div class="prog-time">до 13:00ч.</div><div>Настаняване на отборите</div></div>
-            <div class="prog-item"><div class="prog-time">14:30ч.</div><div>Начало на груповата фаза</div></div>
-            <div class="prog-item"><div class="prog-time">19:00ч.</div><div>Техническа конференция</div></div>
+            <div class="prog-item"><div class="prog-time">13:00ч.</div><div>Настаняване и Посрещане</div></div>
+            <div class="prog-item"><div class="prog-time">14:30ч.</div><div>Начало на мачовете</div></div>
         </div>
         <div id="day2" class="day-content">
-            <div class="prog-item"><div class="prog-time">09:00ч.</div><div>Мачове от груповата фаза</div></div>
-            <div class="prog-item"><div class="prog-time">15:00ч.</div><div>Втори етап - разпределителни мачове</div></div>
+            <div class="prog-item"><div class="prog-time">09:00ч.</div><div>Групова фаза</div></div>
         </div>
         <div id="day3" class="day-content">
-            <div class="prog-item"><div class="prog-time">09:00ч.</div><div>Елиминационна фаза</div></div>
-            <div class="prog-item"><div class="prog-time">16:00ч.</div><div>Класиране за финалната четворка</div></div>
+            <div class="prog-item"><div class="prog-time">09:00ч.</div><div>Елиминации</div></div>
         </div>
         <div id="day4" class="day-content">
-            <div class="prog-item"><div class="prog-time">09:30ч.</div><div>Полуфинали и Малкия финал</div></div>
             <div class="prog-item"><div class="prog-time">11:00ч.</div><div>ГОЛЯМ ФИНАЛ</div></div>
-            <div class="prog-item"><div class="prog-time">12:15ч.</div><div>Церемония по награждаване</div></div>
+            <div class="prog-item"><div class="prog-time">12:15ч.</div><div>Награждаване</div></div>
         </div>
     </section>
 
-    <section id="teams" class="teams-section">
-        <h2 class="section-title">Участници</h2>
-        <div id="teams-container" class="teams-grid"></div>
+    <section id="info" class="teams-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-futbol"></i>
+                <h4>Регламент</h4>
+                <p>Формат: Футбол 9
+                Време: 2х20/25 мин
+                Терен: ПФК Берое</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-list-ol"></i>
+                <h4>Формат</h4>
+                <p>Минимум 6 мача за всеки отбор в рамките на турнира.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-hotel"></i>
+                <h4>Настаняване</h4>
+                <p>Официални хотели и логистика предоставени от Кондор Спорт.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="history">
+        <h2 class="section-title">В памет на Петко Петков</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: left; display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+            <p style="flex: 2;">Турнирът почита наследството на най-великия голмайстор на Берое, вдъхновявайки младите таланти на България.</p>
+            <img src="553268293_10237214184641548_6340380521165262904_n (1).jpg" style="width: 200px; border-radius: 10px;">
+        </div>
     </section>
 
     <footer>
-        <div style="margin-bottom: 20px;">
-            <img src="logo-petkov.png" style="height: 60px;">
-        </div>
-        <p>© 2026 Петко Петков Cup. Турнирът се организира от Кондор Спорт и Община Стара Загора.</p>
+        <p>© 2026 Петко Петков Cup | Кондор Спорт & Община Стара Загора</p>
     </footer>
 
     <script>
@@ -341,9 +335,8 @@
         const container = document.getElementById('teams-container');
         container.innerHTML = teams.map(t => `
             <div class="team-card">
-                <img src="${t.logo}" style="height: 50px; object-fit: contain; margin-bottom: 10px;">
-                <div style="font-weight: bold; font-size: 0.85rem;">${t.name}</div>
-                <div style="font-size: 0.75rem; color: #888;">${t.city}</div>
+                <img src="${t.logo}" style="height: 45px; margin-bottom: 10px;">
+                <div style="font-weight: bold; font-size: 0.8rem;">${t.name}</div>
             </div>
         `).join('');
     </script>
