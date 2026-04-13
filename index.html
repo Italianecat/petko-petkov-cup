@@ -180,6 +180,111 @@
         <p>Международен детски футболен турнир U12 <br> гр. Стара Загора</p>
         <a href="https://condorsport.bg/info/international-tournament-petko-petkov-stara-zagora" class="btn-reg">Регистрация и Инфо</a>
     </section>
+<section id="teams" class="teams-section">
+        <div class="container">
+            <h2 class="section-title">Участници U12</h2>
+            <div class="teams-grid">
+                <div class="team-card">
+                    <div class="team-logo-bg">
+                        <img src="beroe-stara-zagora.png" alt="Берое">
+                    </div>
+                    <h3>ПФК Берое</h3>
+                    <p>Стара Загора</p>
+                </div>
 
+                <div class="team-card">
+                    <div class="team-logo-bg">
+                        <img src="logo_condor-2025-_white.png" alt="Кондор">
+                    </div>
+                    <h3>ФК Кондор</h3>
+                    <p>Стара Загора</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-logo-bg">
+                        <img src="logo-petkov.png" alt="Турнир">
+                    </div>
+                    <h3>Локомотив</h3>
+                    <p>Пловдив</p>
+                </div>
+                
+                </div>
+        </div>
+    </section>
+
+    <style>
+        /* СТИЛОВЕ ЗА ОТБОРИТЕ */
+        .teams-section {
+            padding: 60px 5%;
+            background-color: var(--white);
+            color: var(--darker-green);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--forest-green);
+            text-transform: uppercase;
+            border-bottom: 4px solid var(--antique-gold);
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--antique-gold);
+        }
+
+        .team-logo-bg {
+            background: white;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .team-logo-bg img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .team-card h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+            color: var(--forest-green);
+        }
+
+        .team-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </body>
 </html>
