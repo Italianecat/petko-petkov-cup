@@ -25,6 +25,17 @@
             scroll-behavior: smooth;
         }
 
+        /* АНИМАЦИИ ПРИ СКРОЛВАНЕ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* NAVIGATION */
         header {
             background-color: var(--darker-green);
@@ -194,6 +205,31 @@
         .prog-row { display: flex; padding: 15px 0; border-bottom: 1px solid #eee; }
         .prog-time { width: 120px; font-weight: bold; color: var(--forest-green); }
 
+        /* СТИЛ ЗА БУТОН РЕГЛАМЕНТ */
+        .btn-reglament {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--antique-gold);
+            color: var(--darker-green);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-reglament:hover { background: var(--forest-green); color: white; transform: scale(1.05); }
+
+        /* СТИЛ ЗА КАРТА */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 30px;
+            border: 3px solid var(--vintage-cream);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--darker-green);
@@ -253,6 +289,7 @@
                 <li><a href="#teams">Отбори</a></li>
                 <li><a href="#program">Програма</a></li>
                 <li><a href="#history">История</a></li>
+                <li><a href="#reglament">Регламент</a></li>
             </ul>
         </nav>
         <div class="header-partners">
@@ -263,15 +300,15 @@
     </header>
 
     <section class="hero">
-        <h1>Петко Петков Cup</h1>
-        <div class="countdown">
+        <h1 class="fade-in">Петко Петков Cup</h1>
+        <div class="countdown fade-in">
             <div class="cd-box"><span id="days">00</span><label>Дни</label></div>
             <div class="cd-box"><span id="hours">00</span><label>Часа</label></div>
             <div class="cd-box"><span id="minutes">00</span><label>Мин</label></div>
         </div>
     </section>
 
-    <section id="history">
+    <section id="history" class="fade-in">
         <h2 class="section-title">В памет на легендата</h2>
         <div class="history-flex">
             <div class="history-text">
@@ -284,13 +321,12 @@
         </div>
     </section>
 
-    <section id="teams" class="bg-light">
+    <section id="teams" class="bg-light fade-in">
         <h2 class="section-title">Участници U12</h2>
-        <div id="teams-container" class="teams-grid">
-            </div>
+        <div id="teams-container" class="teams-grid"></div>
     </section>
 
-    <section id="program">
+    <section id="program" class="fade-in">
         <h2 class="section-title">Програма на турнира</h2>
         <div class="tabs-container">
             <div class="tab-menu">
@@ -316,6 +352,17 @@
                 <div class="prog-row"><div class="prog-time">11:30ч.</div><div>ГОЛЯМ ФИНАЛ</div></div>
                 <div class="prog-row"><div class="prog-time">12:30ч.</div><div>Церемония по награждаване</div></div>
             </div>
+        </div>
+    </section>
+
+    <section id="reglament" class="bg-light fade-in">
+        <h2 class="section-title">Регламент и Локация</h2>
+        <p>Запознайте се с официалните правила на турнира и намерете лесно пътя до спортната база.</p>
+        <a href="reglament.pdf" class="btn-reglament" target="_blank"><i class="fas fa-file-pdf"></i> Изтегли Регламента (PDF)</a>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.34351052309!2d25.6069!3d42.4411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a869680360a08d%3A0x676239f6044399e0!2z0KHQv9C-0YDRgtC90LAg0LHQsNC30LAg0JHQtdGA0L7QtQ!5e0!3m2!1sbg!2sbg!4v1711234567890!5m2!1sbg!2sbg" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
@@ -393,10 +440,24 @@
             event.currentTarget.classList.add('active');
         }
 
+        // ЛОГИКА ЗА АНИМАЦИИТЕ ПРИ СКРОЛВАНЕ
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
         window.onload = () => {
             renderTeams();
             setInterval(updateTimer, 1000);
             updateTimer();
+            // Свързване на наблюдателя към всички секции с клас fade-in
+            document.querySelectorAll('.fade-in').forEach(section => {
+                observer.observe(section);
+            });
         };
     </script>
 </body>
