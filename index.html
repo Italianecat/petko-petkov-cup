@@ -103,7 +103,7 @@
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
-        /* COUNTDOWN */
+        /* COUNTDOWN - ВЪРНАТИ СТИЛОВЕ */
         .countdown {
             display: flex;
             gap: 20px;
@@ -111,15 +111,28 @@
         }
 
         .cd-box {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--antique-gold);
+            background: rgba(255, 255, 255, 0.15); /* Видими блокчета */
+            border: 2px solid var(--antique-gold);
             padding: 15px;
             border-radius: 10px;
             min-width: 90px;
+            backdrop-filter: blur(5px);
         }
 
-        .cd-box span { display: block; font-size: 2.2rem; font-weight: bold; color: var(--antique-gold); }
-        .cd-box label { font-size: 0.8rem; text-transform: uppercase; }
+        .cd-box span { 
+            display: block; 
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            color: var(--antique-gold); 
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .cd-box label { 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            color: var(--white);
+            letter-spacing: 1px;
+        }
 
         /* SECTIONS */
         section { padding: 80px 10%; text-align: center; }
@@ -205,7 +218,7 @@
         .prog-row { display: flex; padding: 15px 0; border-bottom: 1px solid #eee; }
         .prog-time { width: 120px; font-weight: bold; color: var(--forest-green); }
 
-        /* СТИЛ ЗА БУТОН РЕГЛАМЕНТ */
+        /* БУТОН РЕГЛАМЕНТ */
         .btn-reglament {
             display: inline-block;
             padding: 15px 35px;
@@ -220,14 +233,15 @@
         }
         .btn-reglament:hover { background: var(--forest-green); color: white; transform: scale(1.05); }
 
-        /* СТИЛ ЗА КАРТА */
+        /* КАРТА */
         .map-container {
             width: 100%;
             height: 400px;
-            margin-top: 30px;
-            border: 3px solid var(--vintage-cream);
+            margin-top: 40px;
+            border: 5px solid var(--vintage-cream);
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         /* FOOTER */
@@ -269,12 +283,13 @@
             opacity: 0.6;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 850px) {
             header { flex-direction: column; gap: 20px; text-align: center; }
             .history-flex { flex-direction: column; text-align: center; }
             .history-image { order: -1; max-width: 350px; }
             section { padding: 60px 5%; }
+            .countdown { gap: 10px; }
+            .cd-box { min-width: 70px; padding: 10px; }
         }
     </style>
 </head>
@@ -356,12 +371,12 @@
     </section>
 
     <section id="reglament" class="bg-light fade-in">
-        <h2 class="section-title">Регламент и Локация</h2>
-        <p>Запознайте се с официалните правила на турнира и намерете лесно пътя до спортната база.</p>
-        <a href="reglament.pdf" class="btn-reglament" target="_blank"><i class="fas fa-file-pdf"></i> Изтегли Регламента (PDF)</a>
+        <h2 class="section-title">Информация за участници</h2>
+        <p>Изтеглете регламента и вижте точното местоположение на турнира.</p>
+        <a href="reglament.pdf" class="btn-reglament" target="_blank"><i class="fas fa-file-pdf"></i> Регламент на турнира</a>
         
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.34351052309!2d25.6069!3d42.4411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a869680360a08d%3A0x676239f6044399e0!2z0KHQv9C-0YDRgtC90LAg0LHQsNC30LAg0JHQtdGA0L7QtQ!5e0!3m2!1sbg!2sbg!4v1711234567890!5m2!1sbg!2sbg" 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.576834575813!2d25.613317376579672!3d42.436724930198084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a8690967385415%3A0x600989f6498455e8!2z0KHRgtCw0LTQuNC-0L0g0JHQtdGA0L7QtQ!5e0!3m2!1sbg!2sbg!4v1711200000000!5m2!1sbg!2sbg" 
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
@@ -370,16 +385,13 @@
         <div class="footer-container">
             <div class="footer-about">
                 <img src="logo-petkov.png" alt="Петко Петков Cup">
-                <p>Международен детски футболен турнир в чест на легендата на ПФК Берое – Петко Петков. Провежда се ежегодно в гр. Стара Загора.</p>
+                <p>Международен детски футболен турнир в чест на легендата на ПФК Берое – Петко Петков.</p>
             </div>
-            
             <div class="footer-contact">
                 <h4>Контакти</h4>
                 <p><i class="fas fa-envelope"></i> office@condorsport.bg</p>
-                <p><i class="fas fa-phone"></i> +359 88X XXX XXX</p>
-                <p><i class="fas fa-map-marker-alt"></i> Спортна база "Берое", Стара Загора</p>
+                <p><i class="fas fa-map-marker-alt"></i> База "Берое", Стара Загора</p>
             </div>
-
             <div class="footer-links">
                 <h4>Организатори</h4>
                 <p>Кондор Спорт</p>
@@ -388,12 +400,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Петко Петков Cup. Проектът е създаден с почит към легендата.</p>
+            <p>© 2026 Петко Петков Cup. В памет на легендата.</p>
         </div>
     </footer>
 
     <script>
-        // Данни за отборите
         const teams = [
             { name: "ПФК Берое", logo: "beroe-stara-zagora.png" },
             { name: "ФК Кондор", logo: "logo_condor-2025-_white.png" },
@@ -415,12 +426,10 @@
             `).join('');
         }
 
-        // Таймер до началото
         function updateTimer() {
             const target = new Date("June 4, 2026 09:00:00").getTime();
             const now = new Date().getTime();
             const diff = target - now;
-
             if (diff > 0) {
                 document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
@@ -428,36 +437,26 @@
             }
         }
 
-        // Логика за табовете
         function openDay(dayId, event) {
             const contents = document.getElementsByClassName('tab-content');
             for (let i = 0; i < contents.length; i++) contents[i].classList.remove('active');
-            
             const links = document.getElementsByClassName('tab-link');
             for (let i = 0; i < links.length; i++) links[i].classList.remove('active');
-
             document.getElementById(dayId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
 
-        // ЛОГИКА ЗА АНИМАЦИИТЕ ПРИ СКРОЛВАНЕ
-        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         window.onload = () => {
             renderTeams();
             setInterval(updateTimer, 1000);
             updateTimer();
-            // Свързване на наблюдателя към всички секции с клас fade-in
-            document.querySelectorAll('.fade-in').forEach(section => {
-                observer.observe(section);
-            });
+            document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
         };
     </script>
 </body>
