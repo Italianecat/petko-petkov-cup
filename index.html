@@ -25,7 +25,7 @@
             scroll-behavior: smooth;
         }
 
-        /* АНИМАЦИИ */
+        /* АНИМАЦИИ ПРИ СКРОЛВАНЕ */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -113,6 +113,7 @@
             align-items: center;
             gap: 10px;
             border: 1px solid rgba(198, 163, 95, 0.3);
+            font-weight: 600;
         }
 
         /* COUNTDOWN */
@@ -366,8 +367,8 @@
         <h1 class="fade-in">Петко Петков Cup</h1>
         
         <div class="weather-hero fade-in">
-            <i class="fas fa-sun" style="color: #ffd700;"></i>
-            <span>Стара Загора: 24°C, Слънчево</span>
+            <span id="weather-icon"><i class="fas fa-sync-alt fa-spin"></i></span>
+            <span id="weather-temp">Зареждане на времето...</span>
         </div>
 
         <div class="countdown fade-in">
@@ -382,7 +383,7 @@
         <div class="history-flex">
             <div class="history-text">
                 <p>Петко Петков (1946 – 2020) е най-великият голмайстор в историята на Берое и един от най-уважаваните български футболисти. С 144 гола в "А" група, той остава вечен символ на Стара Загора.</p>
-                <p>Този турнир за деца до 12 години е нашият начин да почетем паметта му и да предадем неговата любовь към играта на следващите поколения.</p>
+                <p>Този турнир за деца до 12 години е нашият начин да почетем паметта му и да предадем неговата любов към играта на следващите поколения.</p>
             </div>
             <div class="history-image">
                 <img src="553268293_10237214184641548_6340380521165262904_n (1).jpg" alt="Петко Петков">
@@ -448,7 +449,7 @@
         <a href="reglament.pdf" class="btn-reglament" target="_blank"><i class="fas fa-file-pdf"></i> Регламент на турнира</a>
         
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.341101!2d25.61!3d42.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDI1JzQ4LjAiTiAyNcKwMzYnMzYuMCJF!5e0!3m2!1sbg!2sbg!4v1650000000000" 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.341104618751!2d25.61361111111111!3d42.43555555555555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDI2JzA4LjAiTiAyNcKwMzYnNDkuMCJF!5e0!3m2!1sbg!2sbg!4v1620000000000" 
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
@@ -511,6 +512,38 @@
             }
         }
 
+        // ФУНКЦИЯ ЗА ВРЕМЕТО НА ЖИВО
+        async function getLiveWeather() {
+            const city = "Stara Zagora";
+            const apiKey = "8ac5492d6e3256038753239a03197665"; 
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=bg`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const temp = Math.round(data.main.temp);
+                const desc = data.weather[0].description;
+                const iconCode = data.weather[0].icon;
+                
+                document.getElementById("weather-temp").innerText = `Стара Загора: ${temp}°C, ${desc}`;
+                
+                const iconMap = {
+                    "01d": "fa-sun", "01n": "fa-moon",
+                    "02d": "fa-cloud-sun", "02n": "fa-cloud-moon",
+                    "03d": "fa-cloud", "03n": "fa-cloud",
+                    "04d": "fa-clouds", "04n": "fa-clouds",
+                    "09d": "fa-cloud-showers-heavy", "10d": "fa-cloud-rain",
+                    "11d": "fa-bolt", "13d": "fa-snowflake", "50d": "fa-smog"
+                };
+                
+                const iconClass = iconMap[iconCode] || "fa-cloud";
+                document.getElementById("weather-icon").innerHTML = `<i class="fas ${iconClass}" style="color: #ffd700;"></i>`;
+            } catch (error) {
+                document.getElementById("weather-temp").innerText = "Стара Загора: 24°C, Слънчево";
+                document.getElementById("weather-icon").innerHTML = `<i class="fas fa-sun" style="color: #ffd700;"></i>`;
+            }
+        }
+
         function openDay(dayId, event) {
             const contents = document.getElementsByClassName('tab-content');
             for (let i = 0; i < contents.length; i++) contents[i].classList.remove('active');
@@ -528,6 +561,7 @@
 
         window.onload = () => {
             renderTeams();
+            getLiveWeather();
             setInterval(updateTimer, 1000);
             updateTimer();
             document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
