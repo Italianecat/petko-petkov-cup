@@ -105,10 +105,10 @@
         .hotel-card img { width: 100%; height: 200px; object-fit: cover; }
         .hotel-info { padding: 20px; }
         .hotel-info h4 { margin: 0 0 10px 0; color: var(--forest-green); }
-        
-        /* COMING SOON HOTEL CARD */
-        .hotel-card.coming-soon { background: #eee; display: flex; align-items: center; justify-content: center; min-height: 350px; border: 2px dashed #ccc; }
-        .hotel-card.coming-soon h4 { color: #999; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* COMING SOON CARD STYLE */
+        .coming-soon-card { background: #eee; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; min-height: 300px; border-radius: 15px; }
+        .coming-soon-card h4 { color: #888; text-transform: uppercase; letter-spacing: 2px; }
 
         /* VENUE / TERRAINS */
         .venue-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 30px; }
@@ -172,7 +172,7 @@
 <body>
 
     <header>
-        <div class="logo-area"><img src="Petko Petkov new.png" alt="Петко Petkov Cup"></div>
+        <div class="logo-area"><img src="Petko Petkov new.png" alt="Петко Петков Cup"></div>
         <nav>
             <ul>
                 <li><a href="#teams">Отбори</a></li>
@@ -219,7 +219,7 @@
         <p style="max-width: 800px; margin: 0 auto 30px;">Турнирът се провежда на модерната база на ПФК "Берое", разполагаща с отлично поддържани естествени и изкуствени терени.</p>
         <div class="venue-gallery">
             <div class="venue-img">
-                <img src="https://beroe.bg/wp-content/uploads/2015/05/baza1.jpg" alt="Терен 1">
+                <img src="lekoatleticheskata-trenirovychna-pista-kym-trenirovychen-teren-na-sporten-kompleks-beroe-2.jpg" alt="Терен 1">
                 <span>Главен терен</span>
             </div>
             <div class="venue-img">
@@ -248,30 +248,26 @@
         <h2 class="section-title">Настаняване</h2>
         <div class="hotels-grid">
             <div class="hotel-card">
-                <img src="https://parkhotelstarazagora.com/wp-content/uploads/2017/04/hotel-exterior.jpg" alt="Парк Хотел Стара Загора">
+                <img src="Зелен Хълм.jpg" alt="Хотел Сити Стара Загора">
                 <div class="hotel-info">
-                    <h4>Парк Хотел Стара Загора *****</h4>
+                    <h4>Зеленият Хълм ****</h4>
                     <p><i class="fas fa-star" style="color:var(--antique-gold)"></i> Официален партньор на турнира.</p>
-                    <p>Намира се в непосредствена близост до езерото "Загорка".</p>
+                    <p>Намира се на 10 минути от терените.</p>
                 </div>
             </div>
             <div class="hotel-card">
-                <img src="https://merianpalace.com/images/slider/slide1.jpg" alt="Мериан Палас">
+                <img src="Сити.jpg" alt="Зеленият Хълм">
                 <div class="hotel-info">
-                    <h4>Хотел Мериан Палас ****</h4>
+                    <h4>Хотел Хотел Сити ***</h4>
                     <p><i class="fas fa-map-marker-alt"></i> Център, Стара Загора</p>
                     <p>Комфортно настаняване за отборите и техните родители.</p>
                 </div>
             </div>
-            <div class="hotel-card coming-soon">
-                <div class="hotel-info">
-                    <h4>COMING SOON</h4>
-                </div>
+            <div class="coming-soon-card">
+                <h4>Coming Soon</h4>
             </div>
-            <div class="hotel-card coming-soon">
-                <div class="hotel-info">
-                    <h4>COMING SOON</h4>
-                </div>
+            <div class="coming-soon-card">
+                <h4>Coming Soon</h4>
             </div>
         </div>
     </section>
@@ -308,16 +304,25 @@
                 <button class="tab-link" onclick="openDay('day4', event)">Ден 4</button>
             </div>
             <div id="day1" class="tab-content active">
-                <div class="prog-row"><div class="prog-time">14:00ч.</div><div>Начало на мачовете</div></div>
+                <div class="prog-row"><div class="prog-time">14:00ч.</div><div>Пристигане и настаняване на всички отбори
+Акредитация и раздаване на документи
+Откриващ парад в Стара Загора</div></div>
             </div>
             <div id="day2" class="tab-content">
-                <p>Групова фаза - ден втори.</p>
+                <p>Първи кръг от груповите мачове за U12
+Втори кръг от груповите мачове
+Резултати на живо и актуализирано класиране онлайн
+                    Официално откриване.</p>
             </div>
             <div id="day3" class="tab-content">
-                <p>Елиминационна фаза.</p>
+                <p>Последни мачове от груповата фаза
+Квалификация за финалните фази
+Обявяване на финалната схема.</p>
             </div>
             <div id="day4" class="tab-content">
-                <p>Финали и награждаване.</p>
+                <p>Мачове с елиминации и финали
+Церемония по награждаване.
+Официални награди и церемония по закриване.</p>
             </div>
         </div>
     </section>
@@ -325,7 +330,7 @@
     <section id="reglament" class="bg-light fade-in">
         <h2 class="section-title">Локация</h2>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.568474268153!2d25.62624387654761!3d42.436394371186064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a869680387920b%3A0x7e35b0d616673f44!2z0KHQv9C-0YDRgtC90LAg0LHQsNC30LAg0JHQtdGA0L7QtQ!5e0!3m2!1sbg!2sbg!4v1700000000000!5m2!1sbg!2sbg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d2944.437318357038!2d25.6179373766627!3d42.43971262947213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a8690947602359%3A0xc4864e433a01046c!2z0KHQv9C-0YDRgtC90LAg0LHQsNC30LAg0JHQtdGA0L7QtQ!5e0!3m2!1sbg!2sbg!4v1700000000000!5m2!1sbg!2sbg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
@@ -357,7 +362,7 @@
             </div>
             <div class="footer-contact">
                 <h4>Контакти</h4>
-                <p><i class="fas fa-envelope"></i> office@condorsport.bg</p>
+                <p><i class="fas fa-envelope"></i> academy@condorsport.bg</p>
                 <p><i class="fas fa-map-marker-alt"></i> Стара Загора, База Берое</p>
             </div>
         </div>
@@ -373,21 +378,21 @@
             { name: "Бешикташ", logo: "besiktas-jk.png" },
             { name: "Монтело Калчо", logo: "Montello.png" },
             { name: "ПФК Берое", logo: "beroe-stara-zagora.png" },
-            { name: "ЦСКА-София", logo: "logo_condor-2025-_white.png" },
+            { name: "ЦСКА-София", logo: "cska-sofia.png" },
             { name: "Славия 1", logo: "slavia-sofia.png" },
             { name: "Славия 2", logo: "slavia-sofia.png" },
             { name: "Ботев Пд", logo: "botev-plovdiv.png" },
             { name: "Локомотив Пд", logo: "lokomotiv-plovdiv.png" },
             { name: "Ботев Враца", logo: "botev-vratsa.png" },
             { name: "Спартак Варна", logo: "spartak-varna.png" },
-            { name: "Фратрия", logo: "logo-petkov.png" },
+            { name: "Фратрия", logo: "FC_Fratria_logo.png" },
             { name: "Дунав Русе", logo: "dunav.png" },
-            { name: "Левски Раковски", logo: "logo-petkov.png" },
+            { name: "Левски Раковски", logo: "Levski rakovski.png" },
             { name: "Добруджа", logo: "dobrudzha-dobrich.png" },
-            { name: "VR", logo: "logo-petkov.png" },
-            { name: "Розова Долина", logo: "logo-petkov.png" },
-            { name: "Хебър", logo: "logo-petkov.png" },
-            { name: "Локомотив Стара загора", logo: "logo-petkov.png" },
+            { name: "VR", logo: "VR.png" },
+            { name: "Розова Долина", logo: "Rozite.png" },
+            { name: "Хебър", logo: "hebar-100yrs-logo-1.png" },
+            { name: "Локомотив Стара загора", logo: "Локо стз.png" },
             { name: "Локомотив София", logo: "lokomotiv-sofia.png" }
         ];
 
